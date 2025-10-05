@@ -42,6 +42,9 @@ Pod::Spec.new do |s|
     s.dependency "React-Core"
   end
 
+  s.dependency "prism"
+  s.dependency "PrismRn"
+
 
 
 

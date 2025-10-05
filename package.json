@@ -65,6 +65,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "dependencies": {
+    "@nocanstillbb/prism": "*"
+    "@nocanstillbb/prism-rn": "*"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
