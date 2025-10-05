@@ -13,10 +13,11 @@ add_library(minesweeper            SHARED
 include_directories(
    ../cpp
    build/generated/source/codegen/jni/react/renderer/components
+   "${CMAKE_CURRENT_LIST_DIR}/../../prism/include"
 )
 
 target_link_libraries(
-   minesweeper
+  minesweeper
   fbjni
   jsi
   reactnative
