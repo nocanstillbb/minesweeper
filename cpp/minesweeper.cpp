@@ -6,7 +6,7 @@ struct aaaa
   int b = 3;
   int d = 4;
 };
-PRISM_FIELDS(aaaa,b,d)
+PRISM_FIELDS(aaaa, b, d)
 
 
 

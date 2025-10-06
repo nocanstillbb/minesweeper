@@ -179,7 +179,11 @@
     "windows": {
       "namespace": "MinesweeperCodegen",
       "outputDirectory": "windows/Minesweeper/codegen",
-      "separateDataTypes": true
+      "separateDataTypes": true,
+      "generators":[
+          "modulesCxx",
+          "modulesWindows"
+      ]
     }
   },
   "create-react-native-library": {
