@@ -13,8 +13,6 @@
 #include <thread>
 
 //#include "prism/container.hpp"
-//#include "prism/rn/prismmodellistproxy.hpp"
-//#include "prism/rn/prismmodelproxy.hpp"
 
 namespace minesweeper
 {
