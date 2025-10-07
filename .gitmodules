@@ -1,0 +1,3 @@
+[submodule "third-party/eigen3"]
+	path = third-party/eigen3
+	url = git@github.com:nocanstillbb/eigen3.git
