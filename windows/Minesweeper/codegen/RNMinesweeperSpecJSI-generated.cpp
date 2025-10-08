@@ -11,25 +11,37 @@
 
 namespace facebook::react {
 
-static jsi::Value __hostFunction_NativeMinesweeperCxxSpecJSI_multiply(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
-  return static_cast<NativeMinesweeperCxxSpecJSI *>(&turboModule)->multiply(
-    rt,
-    count <= 0 ? throw jsi::JSError(rt, "Expected argument in position 0 to be passed") : args[0].asNumber(),
-    count <= 1 ? throw jsi::JSError(rt, "Expected argument in position 1 to be passed") : args[1].asNumber()
+static jsi::Value __hostFunction_NativeMinesweeperCxxSpecJSI_getMinesVm(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
+  return static_cast<NativeMinesweeperCxxSpecJSI *>(&turboModule)->getMinesVm(
+    rt
   );
 }
-static jsi::Value __hostFunction_NativeMinesweeperCxxSpecJSI_multiply2(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
-  return static_cast<NativeMinesweeperCxxSpecJSI *>(&turboModule)->multiply2(
-    rt,
-    count <= 0 ? throw jsi::JSError(rt, "Expected argument in position 0 to be passed") : args[0].asNumber(),
-    count <= 1 ? throw jsi::JSError(rt, "Expected argument in position 1 to be passed") : args[1].asNumber()
+static jsi::Value __hostFunction_NativeMinesweeperCxxSpecJSI_initCells(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
+  static_cast<NativeMinesweeperCxxSpecJSI *>(&turboModule)->initCells(
+    rt
   );
+  return jsi::Value::undefined();
+}
+static jsi::Value __hostFunction_NativeMinesweeperCxxSpecJSI_regen(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
+  static_cast<NativeMinesweeperCxxSpecJSI *>(&turboModule)->regen(
+    rt
+  );
+  return jsi::Value::undefined();
+}
+static jsi::Value __hostFunction_NativeMinesweeperCxxSpecJSI_open(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
+  static_cast<NativeMinesweeperCxxSpecJSI *>(&turboModule)->open(
+    rt,
+    count <= 0 ? throw jsi::JSError(rt, "Expected argument in position 0 to be passed") : args[0].asNumber()
+  );
+  return jsi::Value::undefined();
 }
 
 NativeMinesweeperCxxSpecJSI::NativeMinesweeperCxxSpecJSI(std::shared_ptr<CallInvoker> jsInvoker)
   : TurboModule("Minesweeper", jsInvoker) {
-  methodMap_["multiply"] = MethodMetadata {2, __hostFunction_NativeMinesweeperCxxSpecJSI_multiply};
-  methodMap_["multiply2"] = MethodMetadata {2, __hostFunction_NativeMinesweeperCxxSpecJSI_multiply2};
+  methodMap_["getMinesVm"] = MethodMetadata {0, __hostFunction_NativeMinesweeperCxxSpecJSI_getMinesVm};
+  methodMap_["initCells"] = MethodMetadata {0, __hostFunction_NativeMinesweeperCxxSpecJSI_initCells};
+  methodMap_["regen"] = MethodMetadata {0, __hostFunction_NativeMinesweeperCxxSpecJSI_regen};
+  methodMap_["open"] = MethodMetadata {1, __hostFunction_NativeMinesweeperCxxSpecJSI_open};
 }
 
 

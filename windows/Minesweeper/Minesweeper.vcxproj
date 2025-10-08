@@ -91,13 +91,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\codegen;$(ReactNativeWindowsDir)..\@nocanstillbb\prism\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\codegen;$(ReactNativeWindowsDir)..\@nocanstillbb\prism\include;$(ReactNativeWindowsDir)..\@nocanstillbb\prism_container\include;$(ReactNativeWindowsDir)..\@nocanstillbb\prism-rn\include;$(CodegenCommandWorkingDir)\third-party\fmt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\codegen;$(ReactNativeWindowsDir)..\@nocanstillbb\prism\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\codegen;$(ReactNativeWindowsDir)..\@nocanstillbb\prism\include;$(ReactNativeWindowsDir)..\@nocanstillbb\prism_container\include;$(ReactNativeWindowsDir)..\@nocanstillbb\prism-rn\include;$(CodegenCommandWorkingDir)\third-party\fmt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <PropertyGroup Label="UserMacros" />
@@ -112,6 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\cpp\minesweeper.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\third-party\fmt\src\format.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -132,11 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Minesweeper.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\prism-rn\windows\PrismRn\PrismRn.vcxproj">
-      <Project>{31a81e45-1488-41ce-913c-a153bb2fcdbe}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ReactNativeWindowsTargets">

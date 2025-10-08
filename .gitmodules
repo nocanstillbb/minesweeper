@@ -1,3 +1,6 @@
 [submodule "third-party/eigen3"]
 	path = third-party/eigen3
 	url = git@github.com:nocanstillbb/eigen3.git
+[submodule "third-party/fmt"]
+	path = third-party/fmt
+	url = git@github.com:fmtlib/fmt.git

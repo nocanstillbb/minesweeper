@@ -15,13 +15,277 @@
 namespace facebook::react {
 
 
-  class JSI_EXPORT NativeMinesweeperCxxSpecJSI : public TurboModule {
+  
+#pragma mark - NativeMinesweeperMine
+
+template <typename P0, typename P1, typename P2, typename P3, typename P4>
+struct NativeMinesweeperMine {
+  P0 uuid;
+  P1 value;
+  P2 visual_value;
+  P3 isPressed;
+  P4 isLastPressed;
+  bool operator==(const NativeMinesweeperMine &other) const {
+    return uuid == other.uuid && value == other.value && visual_value == other.visual_value && isPressed == other.isPressed && isLastPressed == other.isLastPressed;
+  }
+};
+
+template <typename T>
+struct NativeMinesweeperMineBridging {
+  static T types;
+
+  static T fromJs(
+      jsi::Runtime &rt,
+      const jsi::Object &value,
+      const std::shared_ptr<CallInvoker> &jsInvoker) {
+    T result{
+      bridging::fromJs<decltype(types.uuid)>(rt, value.getProperty(rt, "uuid"), jsInvoker),
+      bridging::fromJs<decltype(types.value)>(rt, value.getProperty(rt, "value"), jsInvoker),
+      bridging::fromJs<decltype(types.visual_value)>(rt, value.getProperty(rt, "visual_value"), jsInvoker),
+      bridging::fromJs<decltype(types.isPressed)>(rt, value.getProperty(rt, "isPressed"), jsInvoker),
+      bridging::fromJs<decltype(types.isLastPressed)>(rt, value.getProperty(rt, "isLastPressed"), jsInvoker)};
+    return result;
+  }
+
+#ifdef DEBUG
+  static jsi::String uuidToJs(jsi::Runtime &rt, decltype(types.uuid) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double valueToJs(jsi::Runtime &rt, decltype(types.value) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double visual_valueToJs(jsi::Runtime &rt, decltype(types.visual_value) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static bool isPressedToJs(jsi::Runtime &rt, decltype(types.isPressed) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static bool isLastPressedToJs(jsi::Runtime &rt, decltype(types.isLastPressed) value) {
+    return bridging::toJs(rt, value);
+  }
+#endif
+
+  static jsi::Object toJs(
+      jsi::Runtime &rt,
+      const T &value,
+      const std::shared_ptr<CallInvoker> &jsInvoker) {
+    auto result = facebook::jsi::Object(rt);
+    result.setProperty(rt, "uuid", bridging::toJs(rt, value.uuid, jsInvoker));
+    result.setProperty(rt, "value", bridging::toJs(rt, value.value, jsInvoker));
+    result.setProperty(rt, "visual_value", bridging::toJs(rt, value.visual_value, jsInvoker));
+    result.setProperty(rt, "isPressed", bridging::toJs(rt, value.isPressed, jsInvoker));
+    result.setProperty(rt, "isLastPressed", bridging::toJs(rt, value.isLastPressed, jsInvoker));
+    return result;
+  }
+};
+
+
+
+#pragma mark - NativeMinesweeperMineVM
+
+template <typename P0, typename P1, typename P2, typename P3, typename P4, typename P5, typename P6, typename P7, typename P8, typename P9, typename P10, typename P11, typename P12, typename P13, typename P14>
+struct NativeMinesweeperMineVM {
+  P0 uuid;
+  P1 mode;
+  P2 row_num;
+  P3 col_num;
+  P4 mine_num;
+  P5 mines;
+  P6 eTime_ms;
+  P7 flag_num;
+  P8 status;
+  P9 cellPixcelSize;
+  P10 difficulties;
+  P11 tmp_difficulties;
+  P12 tmp_row_num;
+  P13 tmp_col_num;
+  P14 tmp_mine_num;
+  bool operator==(const NativeMinesweeperMineVM &other) const {
+    return uuid == other.uuid && mode == other.mode && row_num == other.row_num && col_num == other.col_num && mine_num == other.mine_num && mines == other.mines && eTime_ms == other.eTime_ms && flag_num == other.flag_num && status == other.status && cellPixcelSize == other.cellPixcelSize && difficulties == other.difficulties && tmp_difficulties == other.tmp_difficulties && tmp_row_num == other.tmp_row_num && tmp_col_num == other.tmp_col_num && tmp_mine_num == other.tmp_mine_num;
+  }
+};
+
+template <typename T>
+struct NativeMinesweeperMineVMBridging {
+  static T types;
+
+  static T fromJs(
+      jsi::Runtime &rt,
+      const jsi::Object &value,
+      const std::shared_ptr<CallInvoker> &jsInvoker) {
+    T result{
+      bridging::fromJs<decltype(types.uuid)>(rt, value.getProperty(rt, "uuid"), jsInvoker),
+      bridging::fromJs<decltype(types.mode)>(rt, value.getProperty(rt, "mode"), jsInvoker),
+      bridging::fromJs<decltype(types.row_num)>(rt, value.getProperty(rt, "row_num"), jsInvoker),
+      bridging::fromJs<decltype(types.col_num)>(rt, value.getProperty(rt, "col_num"), jsInvoker),
+      bridging::fromJs<decltype(types.mine_num)>(rt, value.getProperty(rt, "mine_num"), jsInvoker),
+      bridging::fromJs<decltype(types.mines)>(rt, value.getProperty(rt, "mines"), jsInvoker),
+      bridging::fromJs<decltype(types.eTime_ms)>(rt, value.getProperty(rt, "eTime_ms"), jsInvoker),
+      bridging::fromJs<decltype(types.flag_num)>(rt, value.getProperty(rt, "flag_num"), jsInvoker),
+      bridging::fromJs<decltype(types.status)>(rt, value.getProperty(rt, "status"), jsInvoker),
+      bridging::fromJs<decltype(types.cellPixcelSize)>(rt, value.getProperty(rt, "cellPixcelSize"), jsInvoker),
+      bridging::fromJs<decltype(types.difficulties)>(rt, value.getProperty(rt, "difficulties"), jsInvoker),
+      bridging::fromJs<decltype(types.tmp_difficulties)>(rt, value.getProperty(rt, "tmp_difficulties"), jsInvoker),
+      bridging::fromJs<decltype(types.tmp_row_num)>(rt, value.getProperty(rt, "tmp_row_num"), jsInvoker),
+      bridging::fromJs<decltype(types.tmp_col_num)>(rt, value.getProperty(rt, "tmp_col_num"), jsInvoker),
+      bridging::fromJs<decltype(types.tmp_mine_num)>(rt, value.getProperty(rt, "tmp_mine_num"), jsInvoker)};
+    return result;
+  }
+
+#ifdef DEBUG
+  static jsi::String uuidToJs(jsi::Runtime &rt, decltype(types.uuid) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double modeToJs(jsi::Runtime &rt, decltype(types.mode) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double row_numToJs(jsi::Runtime &rt, decltype(types.row_num) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double col_numToJs(jsi::Runtime &rt, decltype(types.col_num) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double mine_numToJs(jsi::Runtime &rt, decltype(types.mine_num) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static jsi::Object minesToJs(jsi::Runtime &rt, decltype(types.mines) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double eTime_msToJs(jsi::Runtime &rt, decltype(types.eTime_ms) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double flag_numToJs(jsi::Runtime &rt, decltype(types.flag_num) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double statusToJs(jsi::Runtime &rt, decltype(types.status) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double cellPixcelSizeToJs(jsi::Runtime &rt, decltype(types.cellPixcelSize) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double difficultiesToJs(jsi::Runtime &rt, decltype(types.difficulties) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double tmp_difficultiesToJs(jsi::Runtime &rt, decltype(types.tmp_difficulties) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double tmp_row_numToJs(jsi::Runtime &rt, decltype(types.tmp_row_num) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double tmp_col_numToJs(jsi::Runtime &rt, decltype(types.tmp_col_num) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double tmp_mine_numToJs(jsi::Runtime &rt, decltype(types.tmp_mine_num) value) {
+    return bridging::toJs(rt, value);
+  }
+#endif
+
+  static jsi::Object toJs(
+      jsi::Runtime &rt,
+      const T &value,
+      const std::shared_ptr<CallInvoker> &jsInvoker) {
+    auto result = facebook::jsi::Object(rt);
+    result.setProperty(rt, "uuid", bridging::toJs(rt, value.uuid, jsInvoker));
+    result.setProperty(rt, "mode", bridging::toJs(rt, value.mode, jsInvoker));
+    result.setProperty(rt, "row_num", bridging::toJs(rt, value.row_num, jsInvoker));
+    result.setProperty(rt, "col_num", bridging::toJs(rt, value.col_num, jsInvoker));
+    result.setProperty(rt, "mine_num", bridging::toJs(rt, value.mine_num, jsInvoker));
+    result.setProperty(rt, "mines", bridging::toJs(rt, value.mines, jsInvoker));
+    result.setProperty(rt, "eTime_ms", bridging::toJs(rt, value.eTime_ms, jsInvoker));
+    result.setProperty(rt, "flag_num", bridging::toJs(rt, value.flag_num, jsInvoker));
+    result.setProperty(rt, "status", bridging::toJs(rt, value.status, jsInvoker));
+    result.setProperty(rt, "cellPixcelSize", bridging::toJs(rt, value.cellPixcelSize, jsInvoker));
+    result.setProperty(rt, "difficulties", bridging::toJs(rt, value.difficulties, jsInvoker));
+    result.setProperty(rt, "tmp_difficulties", bridging::toJs(rt, value.tmp_difficulties, jsInvoker));
+    result.setProperty(rt, "tmp_row_num", bridging::toJs(rt, value.tmp_row_num, jsInvoker));
+    result.setProperty(rt, "tmp_col_num", bridging::toJs(rt, value.tmp_col_num, jsInvoker));
+    result.setProperty(rt, "tmp_mine_num", bridging::toJs(rt, value.tmp_mine_num, jsInvoker));
+    return result;
+  }
+};
+
+
+
+#pragma mark - NativeMinesweeperMines
+
+template <typename P0, typename P1, typename P2>
+struct NativeMinesweeperMines {
+  P0 uuid;
+  P1 length;
+  P2 list;
+  bool operator==(const NativeMinesweeperMines &other) const {
+    return uuid == other.uuid && length == other.length && list == other.list;
+  }
+};
+
+template <typename T>
+struct NativeMinesweeperMinesBridging {
+  static T types;
+
+  static T fromJs(
+      jsi::Runtime &rt,
+      const jsi::Object &value,
+      const std::shared_ptr<CallInvoker> &jsInvoker) {
+    T result{
+      bridging::fromJs<decltype(types.uuid)>(rt, value.getProperty(rt, "uuid"), jsInvoker),
+      bridging::fromJs<decltype(types.length)>(rt, value.getProperty(rt, "length"), jsInvoker),
+      bridging::fromJs<decltype(types.list)>(rt, value.getProperty(rt, "list"), jsInvoker)};
+    return result;
+  }
+
+#ifdef DEBUG
+  static jsi::String uuidToJs(jsi::Runtime &rt, decltype(types.uuid) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static double lengthToJs(jsi::Runtime &rt, decltype(types.length) value) {
+    return bridging::toJs(rt, value);
+  }
+
+  static jsi::Array listToJs(jsi::Runtime &rt, decltype(types.list) value) {
+    return bridging::toJs(rt, value);
+  }
+#endif
+
+  static jsi::Object toJs(
+      jsi::Runtime &rt,
+      const T &value,
+      const std::shared_ptr<CallInvoker> &jsInvoker) {
+    auto result = facebook::jsi::Object(rt);
+    result.setProperty(rt, "uuid", bridging::toJs(rt, value.uuid, jsInvoker));
+    result.setProperty(rt, "length", bridging::toJs(rt, value.length, jsInvoker));
+    result.setProperty(rt, "list", bridging::toJs(rt, value.list, jsInvoker));
+    return result;
+  }
+};
+
+class JSI_EXPORT NativeMinesweeperCxxSpecJSI : public TurboModule {
 protected:
   NativeMinesweeperCxxSpecJSI(std::shared_ptr<CallInvoker> jsInvoker);
 
 public:
-  virtual double multiply(jsi::Runtime &rt, double a, double b) = 0;
-  virtual double multiply2(jsi::Runtime &rt, double a, double b) = 0;
+  virtual jsi::Object getMinesVm(jsi::Runtime &rt) = 0;
+  virtual void initCells(jsi::Runtime &rt) = 0;
+  virtual void regen(jsi::Runtime &rt) = 0;
+  virtual void open(jsi::Runtime &rt, double i) = 0;
 
 };
 
@@ -43,30 +307,52 @@ protected:
     : TurboModule(std::string{NativeMinesweeperCxxSpec::kModuleName}, jsInvoker),
       delegate_(reinterpret_cast<T*>(this), jsInvoker) {}
 
+  template <typename OnValueChangedType> void emitOnValueChanged(OnValueChangedType value) {
+    static_assert(bridging::supportsFromJs<OnValueChangedType, double>, "value cannnot be converted to double");
+    static_cast<AsyncEventEmitter<jsi::Value>&>(*delegate_.eventEmitterMap_["onValueChanged"]).emit([jsInvoker = jsInvoker_, eventValue = value](jsi::Runtime& rt) -> jsi::Value {
+      return bridging::toJs(rt, eventValue, jsInvoker);
+    });
+  }
 
 private:
   class Delegate : public NativeMinesweeperCxxSpecJSI {
   public:
     Delegate(T *instance, std::shared_ptr<CallInvoker> jsInvoker) :
       NativeMinesweeperCxxSpecJSI(std::move(jsInvoker)), instance_(instance) {
-
+      eventEmitterMap_["onValueChanged"] = std::make_shared<AsyncEventEmitter<jsi::Value>>();
     }
 
-    double multiply(jsi::Runtime &rt, double a, double b) override {
+    jsi::Object getMinesVm(jsi::Runtime &rt) override {
       static_assert(
-          bridging::getParameterCount(&T::multiply) == 3,
-          "Expected multiply(...) to have 3 parameters");
+          bridging::getParameterCount(&T::getMinesVm) == 1,
+          "Expected getMinesVm(...) to have 1 parameters");
 
-      return bridging::callFromJs<double>(
-          rt, &T::multiply, jsInvoker_, instance_, std::move(a), std::move(b));
+      return bridging::callFromJs<jsi::Object>(
+          rt, &T::getMinesVm, jsInvoker_, instance_);
     }
-    double multiply2(jsi::Runtime &rt, double a, double b) override {
+    void initCells(jsi::Runtime &rt) override {
       static_assert(
-          bridging::getParameterCount(&T::multiply2) == 3,
-          "Expected multiply2(...) to have 3 parameters");
+          bridging::getParameterCount(&T::initCells) == 1,
+          "Expected initCells(...) to have 1 parameters");
 
-      return bridging::callFromJs<double>(
-          rt, &T::multiply2, jsInvoker_, instance_, std::move(a), std::move(b));
+      return bridging::callFromJs<void>(
+          rt, &T::initCells, jsInvoker_, instance_);
+    }
+    void regen(jsi::Runtime &rt) override {
+      static_assert(
+          bridging::getParameterCount(&T::regen) == 1,
+          "Expected regen(...) to have 1 parameters");
+
+      return bridging::callFromJs<void>(
+          rt, &T::regen, jsInvoker_, instance_);
+    }
+    void open(jsi::Runtime &rt, double i) override {
+      static_assert(
+          bridging::getParameterCount(&T::open) == 2,
+          "Expected open(...) to have 2 parameters");
+
+      return bridging::callFromJs<void>(
+          rt, &T::open, jsInvoker_, instance_, std::move(i));
     }
 
   private:
