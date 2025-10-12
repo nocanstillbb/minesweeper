@@ -41,6 +41,9 @@
     <ClCompile Include="..\..\cpp\minesweeper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\third-party\fmt\src\format.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Minesweeper.rc">
