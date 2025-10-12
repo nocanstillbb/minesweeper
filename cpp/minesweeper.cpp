@@ -12,14 +12,14 @@
 #include <string>
 #include <thread>
 
-//#include "prism/container.hpp"
+#include <prism/container.hpp>
 
 namespace minesweeper
 {
 MinesweeperModule::MinesweeperModule(std::shared_ptr<facebook::react::CallInvoker> jsInvoker) : facebook::react::NativeMinesweeperCxxSpec<MinesweeperModule>(jsInvoker)
 {
     // raise(SIGSTOP); // 中断
-    // prism::Container::get()->register_instance(jsInvoker);
+    prism::Container::get()->register_instance(jsInvoker);
     this->jsInvoker_ = jsInvoker;
     private_initCells(nullptr); //初始化
     private_regen();            //生成雷
